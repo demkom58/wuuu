@@ -1,0 +1,12 @@
+type Event {
+  id: ID!
+  name: String!
+  description: String!
+  location: Area!
+  date: String!
+  time: String!
+  duration: Int!
+  maxParticipants: Int!
+  participants: [Character!]!
+  effects: [Effect!]!
+}

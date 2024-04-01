@@ -1,0 +1,4 @@
+rootProject.name = 'wuuu'
+
+include 'auth'
+include 'backend'

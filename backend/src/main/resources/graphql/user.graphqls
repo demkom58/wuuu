@@ -1,0 +1,13 @@
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+
+    friends: [User!]!
+    requestedFriends: [User!]!
+
+    lastActive: String!
+    lastIp: String!
+}
+

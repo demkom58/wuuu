@@ -1,0 +1,21 @@
+module_name = 'auth'
+service_name = 'auth-service'
+configurations = ['k8s.yml']
+
+gradlew = "./gradlew"
+ref_placeholder = "$EXPECTED_REF"
+
+if os.name == "nt":
+    gradlew = "gradlew.bat"
+    ref_placeholder = "%EXPECTED_REF%"
+
+custom_build(
+    ref=service_name,
+    dir='../',
+    command=gradlew + ' :' + module_name + ':jibDockerBuild --image ' + ref_placeholder,
+    deps=['./' + module_name + '/build/classes', module_name + '/build.gradle', 'build.gradle'],
+    entrypoint='java -noverify -cp /app/resources:/app/classes:/app/libs/* $(cat /app/jib-main-class-file)'
+)
+
+k8s_yaml(configurations)
+k8s_resource(service_name)

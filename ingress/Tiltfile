@@ -1,0 +1,5 @@
+# Deploy
+k8s_yaml(['k8s.yml'])
+
+# Manage
+k8s_resource('ingress', port_forwards=['80:80'])

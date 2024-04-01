@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: "backend"
+  threads:
+    virtual:
+      enabled: true
+  sql:
+    init:
+      schema-locations:
+        - 'classpath:org/springframework/security/oauth2/server/authorization/client/oauth2-registered-client-schema.sql'
+        - 'classpath:org/springframework/security/oauth2/server/authorization/oauth2-authorization-consent-schema.sql'
+        - 'classpath:org/springframework/security/oauth2/server/authorization/oauth2-authorization-schema.sql'
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+
+  neo4j:
+    uri: "bolt://neo4j:7687"
+    authentication:
+      username: "neo4j"
+      password: "W-%A8ya?N-z+s=-"

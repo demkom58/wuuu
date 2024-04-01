@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: router
+  labels:
+    app: router
+spec:
+  type: ClusterIP
+  selector:
+    app: apollo-gateway
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apollo-gateway
+  labels:
+    app: apollo-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apollo-gateway
+  template:
+    metadata:
+      labels:
+        app: apollo-gateway
+    spec:
+      containers:
+        - name: apollo-gatewa
+          image: wuuu/apollo-gateway
+          imagePullPolicy: "IfNotPresent"
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: "256M"
+            limits:
+              cpu: "1"
+              memory: "256M"
+          ports:
+            - containerPort: 80

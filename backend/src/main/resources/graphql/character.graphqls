@@ -1,0 +1,47 @@
+# BASE ONES: HUMAN, ELF, DWARF, ORC, TROLL, GOBLIN, GNOME, UNDEAD,DEMON, DRAGON, BEAST, ELEMENTAL, ANGEL
+type Race {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+}
+
+# BASE ONES: VAMPIRE, WEREWOLF, LICH, ZOMBIE, DRAGONBORN, TITAN, GIANT, DEITY
+type RaceModifier {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+}
+
+# BASE ONES: HEALTH, DEFENSE, ATTACK, ATTACK_RANGE, SPEED, MAGIC, WEIGHT, MONEY, EXPERIENCE, LEVEL, SIZE_HEIGHT, SIZE_RADIUS
+type CharacterStat {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+    value: Int!
+    max: Int!
+}
+
+# BASE ONES: POISONING, BLEEDING, BURNING, FREEZING, PARALYZING, SLOWING, STUNNING, BLINDING, SILENCING,
+#   CONFUSING, SLEEPING, CHARMING, FEARING, HEALING, HP, DEF, ATK, SPD, MAG, WEIGHT, MONEY, EXP, LVL
+type Effect {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+    stat: CharacterStat!
+    formula: String! # Placeholders: $stat $base $max $power $duration
+}
+
+type Character {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+
+    race: Race!
+    raceModifier: [RaceModifier!]!
+    stats: [CharacterStat!]!
+}

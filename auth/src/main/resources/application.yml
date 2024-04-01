@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: "auth"
+  threads:
+    virtual:
+      enabled: true
+
+logging:
+  level:
+    "_org.springframework.web.servlet.HandlerMapping.Mappings": TRACE
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+
+  datasource:
+    url: "jdbc:postgresql://postgres:5432/wuuu_auth"
+    username: "postgres"
+    password: "postgres"

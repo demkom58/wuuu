@@ -1,0 +1,52 @@
+# BASE ONES: AXE, SWORD, MACE, BOW, CROSSBOW, STAFF, WAND, DAGGER, SHIELD, HELMET, ARMOR, GLOVES, BOOTS, RING, AMULET etc.
+type ItemType {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+}
+
+enum AffectEvent {
+    ALWAYS
+    ON_EQUIP
+    ON_UNEQUIP
+    ON_ATTACK
+    ON_DEFENSE
+    ON_MOVEMENT
+    ON_BREAK
+    ON_DEATH
+    ON_KILL
+}
+
+type ItemEffect {
+    id: ID!
+    item: Item!
+    effect: Effect!
+    affectEvent: AffectEvent!
+    chance: Float!
+    duration: Int!
+    power: Int!
+    stackable: Boolean!
+    onPresent: [Item!]!
+}
+
+type Item {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+
+    type: ItemType!
+    effects: [ItemEffect!]!
+
+    weight: Float!
+    height: Float!
+    width: Float!
+    length: Float!
+
+    durability: Int!
+    maxDurability: Int!
+
+    level: Int!
+    price: Int!
+}

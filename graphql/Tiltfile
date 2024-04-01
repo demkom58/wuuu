@@ -1,0 +1,14 @@
+service_name = 'apollo-gateway'
+configurations = ['k8s.yml']
+
+docker_build(
+    ref='wuuu/apollo-gateway',
+    context='.',
+    live_update = [
+        sync('index.js', '/app/index.js'),
+    ]
+)
+
+k8s_yaml(configurations)
+
+k8s_resource(service_name, port_forwards=['800:80'])
