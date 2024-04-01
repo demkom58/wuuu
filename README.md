@@ -1,8 +1,19 @@
-# Wuuu
+# Wuuu - Storytelling Platform
 
-Wuuu is software developed to address the needs of storytelling in a digital world. It is a platform that allows users to create, share, and consume stories in a variety of formats. The platform is designed to be flexible and extensible, allowing users to create stories in a variety of formats, including text, images, audio, and video. The platform is also designed to be social, allowing users to share their stories with others and collaborate on new stories.
+<img align="right" src="./logo.svg" height="150" width="150" alt="Wuuu Logo">
 
-It built with idea in mind of procedural generation of stories, where the platform can generate stories based on user input and preferences. The platform is also designed to be extensible, and can be used in a variety of contexts, including games, interactive fiction, and other forms of digital storytelling.
+**Wuuu** is SaaS developed to address the needs of storytelling. 
+The platform is also designed to be social, allowing users to share 
+their stories with others and collaborate on new stories.
+
+It built with ideas in mind:
+- procedural generation of stories;
+- oriented to be used in games and interactive fiction;
+- social features to share and collaborate on stories;
+- easy to use and intuitive interface.
+
+Non-commercial use is free, but commercial use requires a license.
+Suggestions and contributions are welcome.
 
 ## Stack
 Backend stack is as follows:
@@ -23,7 +34,7 @@ Frontend stack is as follows *(TBD)*:
 - Apollo Client (?)
 - Phosphor Icons
 
-## DEV UX
+## DEVELOPMENT
 
 ### Prerequisites
 To build and run this application, you need:
