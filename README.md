@@ -17,22 +17,22 @@ Suggestions and contributions are welcome.
 
 ## Stack
 Backend stack is as follows:
-- Gradle
-- Java 21
-- Spring Boot 3
-- PostgreSQL 16
-- GraphQL
-- Testcontainers
-- Kubernetes (k3s)
+- Gradle;
+- Java 21;
+- Spring Boot 3;
+- PostgreSQL 16: *used as a relational database for user data*;
+- Neo4j 5: *used as a graph database for story entities and relationships*;
+- GraphQL;
+- Testcontainers;
+- Kubernetes (k3s).
 
 Frontend stack is as follows *(TBD)*:
-- PNPM
-- Vite
-- Vue 3
-- Pinia
-- Tailwind CSS (?)
-- Apollo Client (?)
-- Phosphor Icons
+- PNPM;
+- Node.js;
+- Vite;
+- Nuxt 3;
+- Pinia;
+- Phosphor Icons.
 
 ## DEVELOPMENT
 
@@ -41,6 +41,7 @@ To build and run this application, you need:
 - [JDK 21](https://adoptium.net/temurin/releases/?version=21) - runtime & dev tools for the application
 - [Rancher Desktop](https://rancherdesktop.io/) - to run the application in a local Kubernetes (actually k3s) cluster
 - [Tilt](https://tilt.dev/) - to build and run the application in the local Kubernetes cluster
+- [Node.js 21+](https://nodejs.org/) - to build the frontend
 - [PNPM](https://pnpm.io/) - to manage the frontend dependencies
 
 ### Running the application
