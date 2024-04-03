@@ -4,10 +4,12 @@ spring:
   threads:
     virtual:
       enabled: true
-
+  flyway:
+    locations: "classpath:migrations/postgresql"
 logging:
   level:
     "_org.springframework.web.servlet.HandlerMapping.Mappings": TRACE
+    "org.springframework.security": TRACE
 
 ---
 
@@ -17,6 +19,13 @@ spring:
       on-profile: "dev"
 
   datasource:
-    url: "jdbc:postgresql://postgres:5432/wuuu_auth"
+    url: "jdbc:postgresql://postgres:5432/wuuu"
     username: "postgres"
     password: "postgres"
+
+  security:
+    oauth2:
+      authorizationserver:
+        issuer: http://localhost/api/auth
+        endpoint:
+          token-introspection-uri: /oauth2/introspect
