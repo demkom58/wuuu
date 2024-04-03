@@ -57,4 +57,7 @@ export default defineNuxtConfig({
     // css: [
     //     'primevue/resources/themes/aura-light-green/theme.css'
     // ]
+    alias: {
+        pinia: "node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs"
+    },
 })

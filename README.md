@@ -27,7 +27,6 @@ Backend stack is as follows:
 - Kubernetes (k3s).
 
 Frontend stack is as follows *(TBD)*:
-- PNPM;
 - Node.js;
 - Vite;
 - Nuxt 3;
@@ -42,7 +41,6 @@ To build and run this application, you need:
 - [Rancher Desktop](https://rancherdesktop.io/) - to run the application in a local Kubernetes (actually k3s) cluster
 - [Tilt](https://tilt.dev/) - to build and run the application in the local Kubernetes cluster
 - [Node.js 21+](https://nodejs.org/) - to build the frontend
-- [PNPM](https://pnpm.io/) - to manage the frontend dependencies
 
 ### Running the application
 1. Start Rancher Desktop
