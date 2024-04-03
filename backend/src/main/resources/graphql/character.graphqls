@@ -45,3 +45,8 @@ type Character {
     raceModifier: [RaceModifier!]!
     stats: [CharacterStat!]!
 }
+
+type Query {
+    characters: [Character!]!
+    character(id: ID!): Character!
+}
