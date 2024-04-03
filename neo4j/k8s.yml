@@ -6,6 +6,7 @@ metadata:
     app: neo4j
 data:
   NEO4J_AUTH: "neo4j/W-%A8ya?N-z+s=-"
+  NEO4J_server_config_strict__validation_enabled: "false"
 
 ---
 
@@ -32,8 +33,12 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 7474
-    - port: 7687
+    - name: ui
+      protocol: "TCP"
+      port: 7474
+    - name: bolt
+      protocol: "TCP"
+      port: 7687
   selector:
     app: neo4j
 
@@ -58,15 +63,18 @@ spec:
           image: neo4j:5.18-community-bullseye
           imagePullPolicy: "IfNotPresent"
           livenessProbe:
-            exec:
-              command: ["wget", "--no-verbose", "--tries=1", "--spider", "localhost:7474", "||", "exit", "1"]
+            httpGet:
+              port: 7474
+              path: /
             failureThreshold: 4
             periodSeconds: 20
             timeoutSeconds: 5
             initialDelaySeconds: 30
           ports:
-            - containerPort: 7474
-            - containerPort: 7687
+            - name: ui
+              containerPort: 7474
+            - name: bolt
+              containerPort: 7687
           envFrom:
             - configMapRef:
                 name: neo4j-config

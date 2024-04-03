@@ -1,5 +1,7 @@
+ports=['7474:7474', '7687:7687']
+
 # Deploy
 k8s_yaml(['k8s.yml'])
 
 # Manage
-k8s_resource('postgres', port_forwards=['5432:5432'])
+k8s_resource('neo4j', port_forwards=ports)

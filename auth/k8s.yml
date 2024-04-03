@@ -33,17 +33,17 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: wuuu/auth-service:latest
+          image: wuuu/auth
           imagePullPolicy: "IfNotPresent"
           securityContext:
             runAsUser: 1001
           lifecycle:
             preStop:
-              exec:
-                command: [ "CMD", "curl", "-f", "http://127.0.0.1:8080/actuator/health" ]
+              httpGet:
+                port: 8080
+                path: /actuator/health
           ports:
             - containerPort: 8080
-              hostPort: 8081
           resources:
             requests:
               cpu: "0.2"
