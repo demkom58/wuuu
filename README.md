@@ -44,11 +44,16 @@ To build and run this application, you need:
 
 ### Running the application
 1. Start Rancher Desktop
-2. Start Tilt
+2. Disable Traefik in `Preferences > Kubernetes > Traefik`
+3. Install Nginx Ingress:
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.2/deploy/static/provider/cloud/deploy.yaml
+```
+4. Start Tilt
 ```shell
 tilt up
 ```
-3. Open the application in a web browser
+5. Open the application in a web browser
 ```shell
 open http://localhost
 ```

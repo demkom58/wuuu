@@ -1,10 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-reverse-proxy
+  name: reverse-proxy
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/enable-access-log: "true"
 spec:
   ingressClassName: nginx
   rules:
@@ -21,13 +22,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: api-gateway-service
+                name: router
                 port:
-                  number: 8080
+                  number: 80
           - path: /api/auth(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: auth
+                name: auth-service
                 port:
                   number: 8080

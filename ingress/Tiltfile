@@ -1,7 +1,5 @@
-ports=['80:80']
-
 # Deploy
 k8s_yaml(['k8s.yml'])
 
 # Manage
-k8s_resource(new_name='reverse-proxy', objects=['ingress-reverse-proxy'], port_forwards=ports)
+k8s_resource(new_name='reverse-proxy', objects=['reverse-proxy'])
