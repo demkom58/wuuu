@@ -33,6 +33,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-neo4j'
     implementation "eu.michael-simons.neo4j:neo4j-migrations-spring-boot-starter:${neo4jMigrationVersion}"
     implementation 'org.springframework.boot:spring-boot-starter-graphql'
+    implementation 'com.apollographql.federation:federation-graphql-java-support'
     implementation 'org.springframework.boot:spring-boot-starter-quartz'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
