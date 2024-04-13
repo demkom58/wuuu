@@ -23,3 +23,7 @@ spring:
     authentication:
       username: "neo4j"
       password: "W-%A8ya?N-z+s=-"
+
+logging:
+  level:
+    "org.springframework.web.filter.CommonsRequestLoggingFilter": TRACE

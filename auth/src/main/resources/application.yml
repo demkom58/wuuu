@@ -29,3 +29,7 @@ spring:
         issuer: http://localhost/api/auth
         endpoint:
           token-introspection-uri: /oauth2/introspect
+
+logging:
+  level:
+    "org.springframework.web.filter.CommonsRequestLoggingFilter": TRACE
