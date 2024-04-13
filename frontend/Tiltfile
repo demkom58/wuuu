@@ -1,5 +1,6 @@
 service_name = 'frontend'
 configurations = ['k8s.yml']
+ports=['82:80']
 
 docker_build(
     ref='wuuu/frontend-nuxt',
@@ -8,4 +9,4 @@ docker_build(
 
 k8s_yaml(configurations)
 
-k8s_resource(service_name)
+k8s_resource(service_name, port_forwards=ports)
