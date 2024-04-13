@@ -1,13 +1,13 @@
-service_name = 'apollo-gateway'
+service_name = 'graphql-gateway'
 configurations = ['k8s.yml']
-ports = ['800:80']
+ports = ['800:9991']
 
 docker_build(
-    ref='wuuu/apollo-gateway',
+    ref='wuuu/graphql-gateway',
     context='.',
-    live_update = [
-        sync('index.js', '/app/index.js'),
-    ]
+    build_args = {
+        'public_node_url': 'http://localhost/api',
+    },
 )
 
 k8s_yaml(configurations)
